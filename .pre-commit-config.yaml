@@ -1,0 +1,37 @@
+# Checks that run on every commit. The setup script installs them.
+# Run them by hand with: pre-commit run --all-files
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.5
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: [--baseline, .secrets.baseline]
+
+  - repo: local
+    hooks:
+      - id: no-env-file
+        name: never commit .env
+        entry: "A .env file is staged. Keys belong in .env, and .env stays out of git."
+        language: fail
+        files: '(^|/)\.env(\..+)?$'
+        exclude: '(^|/)\.env\.example$'
+
+      - id: blocked-terms
+        name: no client names or private terms
+        entry: python scripts/check_blocked_terms.py
+        language: python
+        types: [text]
+
+      - id: agent-skills-in-sync
+        name: agent skills are in sync
+        entry: python scripts/sync_agent_skills.py --check
+        language: python
+        pass_filenames: false
+        files: '^(\.agents|\.claude|\.github)/skills/'

@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bootcamp: check connections (doctor)",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "bootcamp", "doctor"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Bootcamp: run the app",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "bootcamp", "app"],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Bootcamp: run tests",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest"],
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Bootcamp: run evals",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "bootcamp", "eval"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Bootcamp: start the mock LLM",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "bootcamp", "mock-llm"],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Bootcamp: lint and format",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} -m ruff check . --fix && ${command:python.interpreterPath} -m ruff format .",
+      "problemMatcher": []
+    }
+  ]
+}

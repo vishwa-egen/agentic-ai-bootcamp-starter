@@ -1,0 +1,12 @@
+# Streamlit settings for the starter app.
+
+[server]
+# Serve on this laptop only, not on the local network.
+address = "localhost"
+# Skip the "enter your email" prompt on the first run.
+showEmailPrompt = false
+# Reload the app when you save a file.
+runOnSave = true
+
+[browser]
+gatherUsageStats = false

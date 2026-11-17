@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Streamlit app",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app/streamlit_app.py"],
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    },
+    {
+      "name": "Ask the agent (type a prompt)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "bootcamp",
+      "args": ["ask", "${input:prompt}"],
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    },
+    {
+      "name": "Doctor",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "bootcamp",
+      "args": ["doctor"],
+      "cwd": "${workspaceFolder}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "prompt",
+      "type": "promptString",
+      "description": "Prompt for the agent",
+      "default": "What is 17 * 23?"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Developer tools.
+pytest==9.2.0
+ruff==0.17.5
+detect-secrets==1.5.0
+pre-commit==4.7.0

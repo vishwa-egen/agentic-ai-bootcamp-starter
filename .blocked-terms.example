@@ -1,0 +1,6 @@
+# Copy this file to .blocked-terms.local and list the words that must never
+# reach the repository: client names, project code names, internal system names.
+# One term per line. Matching ignores case. Lines starting with # are comments.
+# .blocked-terms.local is ignored by git, so the list itself stays private.
+ExampleClientName
+example-internal-system

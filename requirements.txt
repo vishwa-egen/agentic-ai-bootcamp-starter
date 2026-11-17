@@ -1,0 +1,25 @@
+# Runtime libraries. Every version is pinned and was installed and tested together.
+# To upgrade: change a pin, run scripts/refresh_constraints, run the tests.
+
+# Agent frameworks (the team picks one for its capstone)
+agent-framework-core==1.26.0        # Microsoft Agent Framework
+agent-framework-openai==1.18.2      # OpenAI-compatible chat client for Agent Framework
+langgraph==1.2.22                   # LangGraph
+langchain==1.5.0
+langchain-openai==1.8.0
+deepagents==0.7.39                  # Deep Agents (built on LangGraph)
+
+# LLM client (works with any OpenAI-compatible endpoint, including a LiteLLM proxy)
+openai==3.52.0
+
+# Tracing and evaluation with Arize
+arize-otel==0.14.1
+arize-phoenix-evals==3.10.0
+openinference-instrumentation-agent-framework==0.1.17
+openinference-instrumentation-langchain==0.1.87
+
+# App and configuration
+streamlit==1.67.0
+pandas==3.1.1
+pydantic-settings==2.16.3
+python-dotenv==1.2.4

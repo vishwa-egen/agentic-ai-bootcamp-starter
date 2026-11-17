@@ -1,0 +1,6 @@
+# Smoke-test golden set for the starter. Replace it with your capstone's golden set.
+# One JSON object per line: id, input, and an optional reference answer.
+{"id": "calc-1", "input": "What is 17 * 23?", "reference": "391"}
+{"id": "calc-2", "input": "What is (125 + 75) / 8?", "reference": "25"}
+{"id": "time-1", "input": "What is the current time in UTC?"}
+{"id": "plain-1", "input": "In one sentence, what is an AI agent?", "reference": "An AI agent is a system that uses a language model to decide which actions or tools to use to reach a goal."}

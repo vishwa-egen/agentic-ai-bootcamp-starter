@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-ai-bootcamp-starter"
+version = "0.1.0"
+description = "Starter for building AI agents with Microsoft Agent Framework, LangGraph and Deep Agents, with Arize tracing and LLM-as-judge evals."
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dynamic = ["dependencies", "optional-dependencies"]
+
+[project.scripts]
+bootcamp = "bootcamp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# requirements.txt is the single source of truth for versions.
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies = { dev = { file = ["requirements-dev.txt"] } }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests", "app"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "SIM"]
+ignore = ["S101"]  # asserts are fine in tests
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S"]
+"src/bootcamp/mock_llm.py" = ["S104"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
